@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://ecomm-store-mern.herokuapp.com/api/";
+const BASE_URL = "https://ecomm-store-mern.herokuapp.com";
 const TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNWI2MjEzZDE4ZmRhZTliM2UxMGJlZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMzQ1ODMyNiwiZXhwIjoxNjMzNTQ0NzI2fQ.d1zq8_tpi1vTVEcGcYl8q0_Md6Jj7rIXucd05y2WDZU";
 
