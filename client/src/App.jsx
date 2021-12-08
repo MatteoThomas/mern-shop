@@ -10,7 +10,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { useSelector } from "react-redux";
 
 const App = () => {
+
+  // const user = false
   const user = useSelector((state) => state.user.currentUser)
+  console.log(user)
   return ( 
   <Router>
     <Switch>
@@ -33,7 +36,7 @@ const App = () => {
     {user ? <Redirect to="/"/> : <Login/>}
       <Login />
     </Route>
-    <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
+    <Route path="/login"> {user ? <Redirect to="/" /> : <Login />} </Route>
         <Route path="/register">
           {user ? <Redirect to="/" /> : <Register />}
         </Route>

@@ -1,4 +1,4 @@
-import  Announcement from "../components/Announcement"
+import Announcement from "../components/Announcement"
 import styled  from "styled-components"
 import Navbar from "../components/Navbar"
 
@@ -9,7 +9,7 @@ import { mobile } from "../responsive"
 import { useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { publicRequest } from "../requestMethods"
-import { addProduct } from "../redux/cartRedux"
+import { addProduct, clearProducts } from "../redux/cartRedux"
 import { useDispatch } from "react-redux"
 
 const Container = styled.div``;
@@ -116,6 +116,8 @@ background-color: white;
 }
 `;  
 
+
+
 const Product = () => {
     const location = useLocation();
     const id = location.pathname.split("/")[2];
@@ -125,6 +127,7 @@ const Product = () => {
     const [size, setSize] = useState("");
     const dispatch = useDispatch()
 
+    
 useEffect(() => {
     const getProduct = async () => {
         try{
@@ -145,7 +148,7 @@ const handleQuantity = (type) => {
         setQuantity(quantity + 1)
     }
 }
-
+// ADD PRODUCT TO CART
 const handleClick = () => {
     dispatch(addProduct({ ...product, quantity, color, size }))
 }

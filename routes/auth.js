@@ -23,6 +23,7 @@ router.post("/register", async (req, res) => {
 });
 
 //LOGIN
+let Tokens = [];
 
 router.post("/login", async (req, res) => {
   try {
@@ -38,14 +39,16 @@ router.post("/login", async (req, res) => {
     OriginalPassword !== req.body.password &&
       res.status(401).json("Wrong credentials!");
 
+    // CREATES ACCESS TOKEN
     const accessToken = jwt.sign(
       {
         id: user._id,
         isAdmin: user.isAdmin,
       },
       process.env.JWT_SEC,
-      { expiresIn: "3d" }
+      { expiresIn: "1d" }
     );
+    Tokens.push(accessToken);
 
     const { password, ...others } = user._doc;
 
@@ -53,6 +56,13 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+// LOGOUT
+router.post("/logout", (req, res) => {
+  // REMOVES FIRST ITEM IN THE TOKENS ARRAY
+  Tokens.shift();
+  res.status(200).json("You logged out");
 });
 
 module.exports = router;

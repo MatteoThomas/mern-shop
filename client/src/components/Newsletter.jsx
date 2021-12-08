@@ -4,7 +4,8 @@ import { mobile } from "../responsive"
 
 const Container = styled.div`
 height: 40vh;
-background-color: aliceblue;
+color: #ffffff;
+background-color: #202122;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -48,8 +49,8 @@ padding-left: 20px;
 const Button = styled.button`
 flex: 1;
 border: none;
-color: white;
-background-color: teal;
+color: #202122;
+background-color: #ffcccb;
 `
 
 
@@ -57,7 +58,7 @@ const Newsletter = () => {
     return (
      <Container>
          <Title>Newsletter</Title>
-         <Desc>Get timely updates from your favorite photographers</Desc>
+         <Desc>Get timely updates about your faves!</Desc>
          <InputContainer>
          <Input placeholder ="Your Email"/>
          <Button>

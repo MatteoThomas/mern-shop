@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// DETERMINES WHAT WILL BE IN STATE
+// DETERMINES WHAT WILL BE IN CART STATE
 const cartSlice = createSlice({
   name: "cart",
   initialState: {

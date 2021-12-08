@@ -3,8 +3,9 @@ import { Search, ShoppingCartOutlined } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 import {mobile} from "../responsive"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { logout } from "../redux/apiCalls"
 
 const Container = styled.div`
 height: 60px;
@@ -14,7 +15,7 @@ const Wrapper = styled.div`
 padding: 10px 20px;
 display: flex;
 align-items: center;
-justify-content: space-between;
+justify-content: center;
 ${mobile({ padding: "10px 0px "})}
 `;
 
@@ -22,12 +23,6 @@ const Left = styled.div`
 flex:1;
 display: flex;
 align-items: center;
-`
-
-const Language = styled.span`
-font-size:14px;
-cursor: pointer;
-${mobile({ display: "none "})}
 `
 
 const SearchContainer = styled.div`
@@ -72,33 +67,61 @@ ${mobile({ fontSize: "12px", marginLeft: "10px"})}
 `
 
 const Navbar = () => {
-
+    // const user = false
+    const user = useSelector((state) => state.user.currentUser)
     const quantity = useSelector(state => state.cart.quantity)
-    console.log(quantity)
+    const dispatch = useDispatch();
 
-
+    const handleClick = (e) => {
+        e.preventDefault();
+        logout( dispatch, { user });
+      };
+     
     return (
         <Container>
           <Wrapper>
-              <Left><Language>EN</Language>
-              <SearchContainer>
+              
+              <Left>
+                  {/* FUTURE DEVELOPMENT */}
+                <SearchContainer>
                  <Input placeholder="Search"/>
-                  <Search style={{color: "grey", fontSize:16}}/>
-                  </SearchContainer></Left>
-              <Center><Logo>MERN</Logo></Center>
-              <Right>
-<MenuItem>REGISTER</MenuItem>
-<MenuItem>SIGN IN</MenuItem>
-<Link to="/cart">
-<MenuItem>
-<Badge badgeContent={quantity} color="primary">
-    <ShoppingCartOutlined/>
-</Badge>
-</MenuItem>
-</Link>
-              </Right>
+                    <Search style={{color: "grey", fontSize:16}}/>
+                </SearchContainer>
+              </Left> 
+
+              <Center>
+                  <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <Logo>MERN Store</Logo>
+                  </Link>
+              </Center>
+                
+            <Right>
+                  {/* IF USER THEN RENDER LOG OUT LINK */}
+              <Link to="/login" onClick={handleClick} style={{ color: 'inherit', textDecoration: 'none' }}>
+                  {user ? <MenuItem>LOG OUT</MenuItem> : ""}
+              </Link>
+
+                  {/* IF USER THEN DONT RENDER REGISTER LINK */}
+              <Link to="/register" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  {user ? "" : <MenuItem>REGISTER</MenuItem>}
+              </Link>
+
+                  {/* IF USER THEN DONT RENDER SIGN IN LINK */}
+              <Link to="/login" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  {user ? "" : <MenuItem>SIGN IN</MenuItem>}
+              </Link>
+              
+              <Link to="/cart">
+                <MenuItem>
+                    <Badge badgeContent={quantity} color="primary">
+                        <ShoppingCartOutlined/>
+                    </Badge>
+                </MenuItem>
+              </Link>
+            </Right>
+            
           </Wrapper>
-            </Container>
+        </Container>
         
     )
 }

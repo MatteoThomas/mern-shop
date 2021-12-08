@@ -166,7 +166,8 @@ const Cart = () => {
     const cart = useSelector((state) => state.cart);
     const [stripeToken, setStripeToken] = useState(null);
     const history = useHistory();
-  
+
+
     const onToken = (token) => {
       setStripeToken(token);
     };
@@ -184,16 +185,18 @@ const Cart = () => {
       stripeToken && makeRequest();
     }, [stripeToken, cart.total, history]);
 
+
+
     return (
-<Container>
-    <Navbar/>
-    <Announcement/>
-    <Wrapper>
+    <Container>
+     <Navbar/>
+        <Announcement/>
+         <Wrapper>
         <Title>YOUR CART</Title>
         <Top>
             <TopButton>CONTINUE SHOPPING</TopButton>
             <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Shopping Bag(0)</TopText>
             <TopText>Your Wishlist</TopText>
             </TopTexts>
             <TopButton type='filled'>CHECK OUT</TopButton>
@@ -214,9 +217,9 @@ const Cart = () => {
                     </ProductDetail>
                     <PriceDetail>
                       <ProductAmountContainer>
-                          <Add/>
+                        <Add />
                           <ProductAmount>{product.quantity}</ProductAmount>
-                          <Remove/>
+                        <Remove />
                       </ProductAmountContainer>
                       <ProductPrice>${product.price * product.quantity}</ProductPrice>
                     </PriceDetail>

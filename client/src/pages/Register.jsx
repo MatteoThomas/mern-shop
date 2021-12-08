@@ -51,6 +51,7 @@ cursor: pointer;
 `
 
 const Register = () => {
+    
     return (
     <Container>
     <Wrapper>

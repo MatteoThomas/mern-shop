@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
-// import { popularProducts } from '../data'
 import Product from "./Product"
 import { mobile } from "../responsive"
 
@@ -26,8 +25,13 @@ useEffect(() => {
       try {
         const res = await axios.get( 
             cat 
-                ? `https://ecomm-store-mern.herokuapp.com/api/products/?category=${cat}`
-                : "https://ecomm-store-mern.herokuapp.com/api/products/"
+            // DEVELOPMENT
+            ? `http://localhost:5000/api/products/?category=${cat}`
+            : "http://localhost:5000/api/products/"
+            
+            // PRODUCTION
+            // ? `https://ecomm-store-mern.herokuapp.com/api/products/?category=${cat}`
+            // : "https://ecomm-store-mern.herokuapp.com/api/products/"
         )
         setProducts(res.data)
         console.log(res)

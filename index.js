@@ -24,7 +24,9 @@ mongoose
 
 app.use(
   cors({
+    // DEVELOPMENT
     // origin: "http://localhost:5000",
+    // PRODUCTION
     origin: "https://ecomm-store-mern.herokuapp.com/",
   })
 );

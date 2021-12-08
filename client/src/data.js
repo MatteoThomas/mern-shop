@@ -1,10 +1,10 @@
-import kc from "../src/images/kc_doll.jpg";
-import mirror from "../src/images/mirror.jpg";
-import house from "../src/images/house.jpg";
-import punk from "../src/images/punk.jpg";
-import shrine from "../src/images/shrine.jpg";
-import bunny from "../src/images/bunny.jpg";
-import sealtram from "../src/images/sealtram.jpg";
+import sun from "../src/images/sun.jpg";
+import fall from "../src/images/fall.jpg";
+import winter from "../src/images/winter.jpg";
+import accessories from "../src/images/accessories.jpg";
+import dress from "../src/images/dress.jpg";
+import casual from "../src/images/casual.jpg";
+import sport from "../src/images/sport.jpg";
 import owl from "../src/images/owl.jpg";
 import me from "../src/images/mestairs.jpg";
 import mushroom from "../src/images/mushroom.jpg";
@@ -15,49 +15,49 @@ import drinkcart from "../src/images/drinkcart.jpg";
 export const sliderItems = [
   {
     id: 1,
-    img: kc,
-    title: "AKIHABARA",
-    desc: "Video games, dolls, electronics",
-    bg: "c2bacd",
+    img: sun,
+    title: "End of Summer",
+    desc: "Catch the hot deals",
+    bg: "cccc8e",
   },
   {
     id: 2,
-    img: mirror,
-    title: "LAKE ASHI / HAKONE",
-    desc: "Hiking, History, Heaven",
-    bg: "f3cacd",
+    img: fall,
+    title: "Fall for All",
+    desc: "Snuggle up with these",
+    bg: "c49677",
   },
   {
     id: 3,
-    img: house,
-    title: "ABOVE THE CAFE",
-    desc: "Wake up and you're there!",
-    bg: "A3cabd",
+    img: winter,
+    title: "Winter is Coming",
+    desc: "Prepare for the best",
+    bg: "a8b9ce",
   },
 ];
 
 export const categories = [
   {
     id: 1,
-    img: punk,
-    title: "Accessories",
+    img: accessories,
+    title: "ACCESSORIES",
     cat: "accessories",
   },
   {
     id: 2,
-    img: shrine,
+    img: dress,
     title: "DRESSED UP",
     cat: "dress",
   },
   {
     id: 3,
-    img: bunny,
+    img: casual,
     title: "KEEP IT CASUAL",
     cat: "casual",
   },
   {
     id: 4,
-    img: sealtram,
+    img: sport,
     title: "SPORTY",
     cat: "sporty",
   },
