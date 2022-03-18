@@ -26,12 +26,12 @@ useEffect(() => {
         const res = await axios.get( 
             cat 
             // DEVELOPMENT
-            ? `http://localhost:5000/api/products/?category=${cat}`
-            : "http://localhost:5000/api/products/"
+//             ? `http://localhost:5000/api/products/?category=${cat}`
+//             : "http://localhost:5000/api/products/"
             
             // PRODUCTION
-            // ? `https://ecomm-store-mern.herokuapp.com/api/products/?category=${cat}`
-            // : "https://ecomm-store-mern.herokuapp.com/api/products/"
+            ? `https://ecomm-store-mern.herokuapp.com/api/products/?category=${cat}`
+            : "https://ecomm-store-mern.herokuapp.com/api/products/"
         )
         setProducts(res.data)
         console.log(res)
